@@ -1,0 +1,84 @@
+
+{% extends 'base.html' %}
+
+{% block title %}signup {% endblock %}
+{% block body %}
+
+<div class="flex-container">
+    <nav>
+        <div class="nav-wrapper" style="background-color:#6c757d;">
+            <div class="container nav-wrapper">
+                <a href="#!" class="brand-logo" style="color:gold; font-size:19.2px;">Favflamz CBT Test Signup page</a>
+            </div>
+        </div>
+
+    </nav>
+
+
+    <div class="container content1" style="color:#20c997;">
+        <h3><em>Fill in the appropriate answers in the form below</em></h3>
+    </div>
+
+
+    <div class="container form" style="padding-top:50px; ">
+        <form  action="{% url 'addUser' %}" method="post">
+
+        {% csrf_token %}
+    <div class="row">
+        <div class="col s9" style="padding-left:230px;">
+          {{form}}
+        </div>
+
+    </div>
+
+        <div class="container payment description">
+            <h3 style="color:black; font-size:20px; text-align:left; padding-left:100px; padding-right:100px;">Before you can register, you have to pay a sum of #1000 naira as the registration fee</h3>
+            <div class="pay-now">
+                <h5  class="pay-options" style="font-size:15px; color:grey; text-align:left; padding-left:100px; padding-right:100px;"><em>Here are the links to the payment options available below</em></h5>
+                <ul class="row">
+                    <li  style="font-size:16px;text-align:left; padding-left:100px; padding-right:100px;"><a href="#">Bank Transfer</a></li>
+                    <li  style="font-size:16px;text-align:left; padding-left:100px; padding-right:100px;"><a href="#1">Remitta</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="my button" style=" padding-left:1000px;">
+            <input type="submit" value="register" class="btn waves-effect waves-light" >
+
+        </div>
+
+
+        </form>
+
+    </div>
+
+
+    <!--footer-->
+
+    <footer class="page-footer" style="background-color:#6c757d;">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Footer Content</h5>
+                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                      <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                      <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                      <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                      <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2020 Copyright Text
+                <a class="grey-text text-lighten-4 right" href="#!"><em>| Favflamz project</em></a>
+            </div>
+        </div>
+    </footer>
+</div>
+{% endblock %}

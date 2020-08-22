@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+
+{% block title %}subject and years {% endblock %}
+{% block body %}
+
+
+<nav>
+    <div class="nav-wrapper" style="background-color:#6c757d;">
+        <div class="container nav-wrapper">
+            <a href="#!" class="brand-logo" style="color:gold; font-size:20px;">Subjects and Years</a>
+            <ul class="right hide-on-med-and-down">
+            <li><a href="/"><i class="material-icons left"></i>Home</a></li>
+            <li><a href="badges.html"><i class="material-icons right"></i></a></li>
+          </ul>
+        </div>
+    </div>
+
+</nav>
+
+
+<div class="page-content" style="font-family:raleway,sans-serif;">
+    <div class="container intro">
+        <h3 style="font-size:24px; color:#28a745; text-align:center;"><em>To start studying the free online past questions right now, please select the subjects to be examined on. English Language is compulsory so you are allowed to select 3 other subjects and the year of your choice below. After selection, proceed to the next page.</em></h3>
+        <em style="font-size:30px; padding-bottom:10px; padding-left:100px;">Please select the appropriate details for your test</em>
+    </div>
+
+
+    <div class=" container row" >
+        <div class="col s3">
+            <p>Mathematics</p>
+            <p>English Language</p>
+            <p>Sweet Sixteen</p>
+            <p>Fine Arts</p>
+            <p>Music</p>
+            <p>Agricultural Science</p>
+            <p>Islamic Religious Knowledge (IRK)</p>
+
+
+        </div>
+        <div class="col s3">
+            <p>Insurance</p>
+            <p>Chemistry</p>
+            <p>Physics</p>
+            <p>Yoruba</p>
+            <p>Biology</p>
+            <p>Geography</p>
+            <p>Literature in English</p>
+        </div>
+
+        <div class="col s3">
+            <p>Commerce</p>
+            <p>Accounts - Principles of Accounts</p>
+            <p>Government</p>
+            <p>Igbo</p>
+            <p>Christian Religious Knowledge (CRK)</p>
+            <p>Further Mathematics</p>
+
+
+        </div>
+
+        <div class="col s3">
+            <p>French</p>
+            <p>Animal Husbandry</p>
+            <p>Civic Education</p>
+            <p>Arabic</p>
+            <p>Home Economics</p>
+            <p>Hausa</p>
+            <p>Economics</p>
+            <p>History</p>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <div class="container subject-form">
+        <div class="row">
+            <form action="{% url 'page1' %}" method="post" class="container col s6">
+                {% csrf_token %}
+
+
+                <label><b style="color:black; font-size:18px;">subject 1</b></label>
+                <input name="search1" class="form-control" placeholder="subject 1" />
+
+                 <label><b style="color:black; font-size:18px;">subject 2</b></label>
+                 <input name="search2" class="form-control" placeholder="subject 2"/>
+
+                <label><b style="color:black; font-size:18px;">subject 3</b></label>
+                <input name="search3" class="form-control" placeholder="subject 3" />
+
+                <label><b style="color:black; font-size:18px;">Year</b></label>
+                <input name="search4" class="form-control" placeholder="Year" />
+
+
+
+                <button class="btn waves-effect waves-light" type="submit" name="action" style="background-color:green; ">
+                    Sumbit
+                     <i class="fa fa-send" style="color:white;" ></i>
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+    <div style="padding-left:200px; font-size:20px;">
+        <p>English Language is compulsory</p>
+        <p>{{search1 | title}}</p>
+        <p>{{search2 | title}}</p>
+        <p>{{search3 | title}}</p>
+        <p>{{search4 | title}}</p>
+
+    </div>
+
+
+    <div class="container button" style="padding-left:750px; padding-bottom:60px; padding-top:60px;">
+        <a href="chem-page/">
+          <button class="btn waves-effect waves-light" type="submit" name="action" style="background-color:green; color:white;">
+           Proceed
+           <i class="fa fa-arrow-right" style="color:black;" ></i>
+           <i class="fa fa-arrow-right" style="color:black;" ></i>
+       </button>
+        </a>
+    </div>
+
+
+</div>
+
+{% endblock %}

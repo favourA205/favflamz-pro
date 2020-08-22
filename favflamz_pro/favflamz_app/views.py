@@ -25,7 +25,7 @@ def addUser(request):
     if register.is_valid():
         register.save()
 
-    return redirect('base_home')
+    return redirect('home')
 
 def page1(request):
 

@@ -1,0 +1,15 @@
+body{
+    background-image:url("../images/memphis-colorful.png")
+
+
+}
+.flex-container{
+    font-family:Raleway sans-serif;
+    display:flex;
+    flex-wrap:wrap;
+    flex-direction:column;
+}
+
+.mid-detail .reg a:hover{
+    text-decoration:underline;
+}

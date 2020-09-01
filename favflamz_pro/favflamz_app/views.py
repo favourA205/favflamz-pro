@@ -42,9 +42,12 @@ def page1(request):
         'search1': select1,
         'search2': select2,
         'search3': select3,
-        'search4': select4
+        'search4': select4,
+
 
     }
+
+
 
     return render(request, 'sub and yrs.html', context)
 
@@ -55,20 +58,46 @@ def instruction_page(request):
     return render(request,'instruction page.html')
 
 
-def chemistry_page(request):
-    baseurl ='https://myschool.ng/classroom/{}?exam_type=jamb&exam_year=2019'
-
-    response = requests.get(baseurl)
+def newpage(request):
+    select1 = request.POST.get('search1')
+    print(select1)
+    baseurl = 'https://myschool.ng/classroom/{}?exam_type=jamb&exam_year=2019'
     final_url = baseurl.format(quote_plus(select1))
+    h = requests.get(final_url)
+    final_url = baseurl.format(quote_plus(select1))
+
+   # x = "&type=&page={}".join(baseurl)
+    x = final_url.split("&type=&page={} ")
+    print(x)
+
+    soup = BeautifulSoup(h.text,'html.parser')
+    k = soup.find(id="question-listing")
+    print(k)
     data = final_url
     print(data)
 
-    print(final_url)
-    jontext = {
-         'g':data
+    return render(request, 'new page.html')
 
-     }
+def syllabus(request):
+    select1 = request.POST.get('search1')
+    print(select1)
+    page_url = 'https://myschool.ng/classroom/jamb-syllabus/{}'
+    final_url2 = page_url.format(quote_plus(select1))
+    www = final_url2
+    print(www)
+    jjj = requests.get(final_url2)
+    soup = BeautifulSoup(jjj.content, 'html.parser')
+
+    for p in soup.find_all('div', attrs={'id': "page-content-section"}):
+        info = p.text
+        print(info)
 
 
-    return render(request, 'chemistry page.html',jontext)
+    context ={
+        'syll':info,
+        'heading':select1
 
+
+    }
+
+    return render(request,'syllabus.html',context)

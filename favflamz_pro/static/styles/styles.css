@@ -3,13 +3,15 @@ body{
 
 
 }
-.flex-container{
-    font-family:Raleway sans-serif;
-    display:flex;
-    flex-wrap:wrap;
-    flex-direction:column;
-}
 
 .mid-detail .reg a:hover{
     text-decoration:underline;
+}
+
+.nav-wrapper ul li a :active{
+    color:grey;
+}
+
+.media-body a :hover{
+    color:#7FFF00;
 }

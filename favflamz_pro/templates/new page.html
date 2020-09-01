@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}signup {% endblock %}
+{% block body %}
+
+
+amazing grace
+
+
+<form action="" method="post" class="container col s6">
+    {% csrf_token %}
+
+
+    <label><b style="color:black; font-size:18px;">subject 1</b></label>
+    <input name="search1" class="form-control" placeholder="subject 1" />
+
+
+    <button class="btn waves-effect waves-light" type="submit" name="action" style="background-color:green; ">
+        Sumbit
+        <i class="fa fa-send" style="color:white;" ></i>
+    </button>
+
+</form>
+
+
+<p>{{search1 | title}}</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

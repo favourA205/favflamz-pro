@@ -81,23 +81,6 @@ def newpage(request):
 def syllabus(request):
     select1 = request.POST.get('search1')
     print(select1)
-    page_url = 'https://myschool.ng/classroom/jamb-syllabus/{}'
-    final_url2 = page_url.format(quote_plus(select1))
-    www = final_url2
-    print(www)
-    jjj = requests.get(final_url2)
-    soup = BeautifulSoup(jjj.content, 'html.parser')
-
-    for p in soup.find_all('div', attrs={'id': "page-content-section"}):
-        info = p.text
-        print(info)
 
 
-    context ={
-        'syll':info,
-        'heading':select1
-
-
-    }
-
-    return render(request,'syllabus.html',context)
+    return render(request,'syllabus.html')
